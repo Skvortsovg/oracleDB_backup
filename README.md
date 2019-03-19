@@ -20,7 +20,23 @@ You can work with configuration file using following startup keys:
 - -r (--remove) - remove backup policy
 - -e (--edit) - change parameters for policy
 
-more documentation is available [here](http://wiki.mpcompany.local/pages/viewpage.action?pageId=21921794)
+Config options
+
+The configuration file consists of sections, led by a [section]header and followed by name = value entries 
+
+In this case, the partition name is the same as the policy name.
+
+ The section contains the following parameters:
+
+    SID
+    threadsCount - Number of threads (the number of Allocate Channel in RMAN). 1 by default
+    compression - Adding the string as compressed backupset in RMAN). False by default
+    databaseFilesperset - Filesperset for backups. 1 for default
+    logsFilesperset - Filesperset for logs. 30 for default.
+    backupOnlyLogs - For *-archlog is True, False in the other case.
+    resyncCatalog - To do or not resync catalog after backup. True by default
+    asTableSpace - Mode in which only encrypted tablespaces are backed up with compression. compression=True are required
+
 
 
 
